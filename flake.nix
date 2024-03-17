@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "Wsinned's NixOS Configuration";
 
   inputs = {
     # Nixpkgs
@@ -14,59 +14,52 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
+    hardware.url = "github:nixos/nixos-hardware";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
-    # nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
+  outputs = { self, nixpkgs, home-manager, ...} @ inputs: 
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
     # Supported systems for your flake packages, shell, etc.
-    systems = [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
+    systems = [ "aarch64-linux" "x86_64-linux" ];
+
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    # Your custom packages
-    # Accessible through 'nix build', 'nix shell', etc
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    # Formatter for your nix files, available through 'nix fmt'
-    # Other options beside 'alejandra' include 'nixpkgs-fmt'
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    forEachSystem = f: lib.genAttrs systems (system: f.pkgsFor.${system});
+    pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    });
+  in 
+  {
 
-    # Your custom packages and modifications, exported as overlays
-    overlays = import ./overlays {inherit inputs;};
-    # Reusable nixos modules you might want to export
-    # These are usually stuff you would upstream into nixpkgs
+    inherit lib;
     nixosModules = import ./modules/nixos;
-    # Reusable home-manager modules you might want to export
-    # These are usually stuff you would upstream into home-manager
     homeManagerModules = import ./modules/home-manager;
+    templates = import ./templates;
+
+    overlays = import ./overlays { inherit inputs outputs; };
+    hydraJobs = import ./hydra.nix { inherit inputs outputs; };
+
+    packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+    devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
+    formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # Main personal laptop
-      dw-apollo = nixpkgs.lib.nixosSystem {
+      dw-apollo = lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [ ./nixos/dw-apollo.nix ];
+        modules = [ ./hosts/dw-apollo ];
       };
-
       # Spare laptop for experiments
-      dw-dell = nixpkgs.lib.nixosSystem {
+      dw-dell = lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [ ./hosts/dw-dell ];
       };
