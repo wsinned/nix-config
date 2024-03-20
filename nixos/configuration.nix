@@ -9,8 +9,7 @@
   ...
 }: {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [ 
       # <home-manager/nixos>
       # Import home-manager's NixOS module
       inputs.home-manager.nixosModules.home-manager
