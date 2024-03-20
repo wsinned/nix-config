@@ -6,8 +6,8 @@
 
   # Bootloader.
   boot = {
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
   };
 
   networking.hostName = "dw-dell"; # Define your hostname.
