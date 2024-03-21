@@ -18,6 +18,12 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+
+    ./apps/oh-my-zsh.nix
+    ./apps/git.nix
+    ./apps/gh.nix
+    ./apps/kitty.nix
+    ./apps/unfree.nix
   ];
 
   nixpkgs = {
@@ -51,6 +57,41 @@
   home = {
     username = "wsinned";
     homeDirectory = "/home/wsinned";
+
+    packages = with pkgs; [
+      bitwarden
+      dropbox-cli
+      firefox
+      ffmpeg
+      gzip
+      htop
+      meslo-lgs-nf
+      neofetch
+      p7zip
+      qpdf
+      tutanota-desktop
+      tree
+      ulauncher
+      zsh-powerlevel10k
+      
+      # generic devtools
+      direnv
+      gh
+      ltex-ls
+
+      # gaming
+      protontricks
+
+      # python tools
+      python311Full
+      python311Packages.pip
+      python311Packages.meson
+      pipx
+    ];
+
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 
   # Add stuff for your user as you see fit:
@@ -60,6 +101,11 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
+
+  # These are needed for desktop files and font registration
+  targets.genericLinux.enable = true;
+  programs.bash.enable = true;
+  fonts.fontconfig.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

@@ -175,7 +175,6 @@
   # enable steam
   programs.steam.enable = true;
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -190,6 +189,7 @@
     wget
     neovim
     git
+    helix
     zsh
     mc
     duf
