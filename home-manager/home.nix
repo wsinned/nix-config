@@ -22,6 +22,7 @@
     ./apps/oh-my-zsh.nix
     ./apps/git.nix
     ./apps/gh.nix
+    ./apps/helix.nix
     ./apps/kitty.nix
     ./apps/unfree.nix
   ];
@@ -76,7 +77,6 @@
       
       # generic devtools
       direnv
-      gh
       ltex-ls
 
       # gaming
@@ -90,7 +90,7 @@
     ];
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "hx";
     };
   };
 
