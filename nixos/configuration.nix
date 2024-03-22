@@ -154,21 +154,6 @@
     };
   };
 
-#  home-manager.users.wsinned = { pkgs, ... }: {
-
-#  	imports = [
-#  		"/home/wsinned/.config/home-manager/home.nix"
-#  	];
-
-    # set inside home.nix
-    #home.stateVersion = "23.05";
-#  };
-
-  # This saves an extra Nixpkgs evaluation, adds consistency, 
-  # and removes the dependency on NIX_PATH, which is otherwise 
-  # used for importing Nixpkgs.
-#  home-manager.useGlobalPkgs = true;
-  
   # Ensure zsh is enabled to be used as default shell for wsinned
   programs.zsh.enable = true;
 
@@ -177,10 +162,11 @@
 
   # enable steam
   programs.steam.enable = true;
-
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # ensure local bin is avaliable in path
   environment.localBinInPath = true;
 
   # List packages installed in system profile. To search, run:

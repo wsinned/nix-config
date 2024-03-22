@@ -31,7 +31,6 @@
 			  
 	      bindkey '^f' autosuggest-accept
 	      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-	      [[ ! -f ~/scripts/aliases.sh ]] || source ~/scripts/aliases.sh 
 
 	    '';
 	  };

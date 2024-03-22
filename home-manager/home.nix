@@ -57,7 +57,6 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "wsinned";
     homeDirectory = "/home/wsinned";
@@ -83,6 +82,7 @@
       ltex-ls
 
       # gaming
+      steam
       protontricks
 
       # python tools
@@ -91,15 +91,7 @@
       python311Packages.meson
       pipx
     ];
-
-    sessionVariables = {
-      EDITOR = "hx";
-    };
   };
-
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
