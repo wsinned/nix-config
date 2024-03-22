@@ -25,6 +25,9 @@
     ./apps/helix.nix
     ./apps/kitty.nix
     ./apps/unfree.nix
+
+    ./config/aliases.nix
+    ./config/vars.nix
   ];
 
   nixpkgs = {
