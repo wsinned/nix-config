@@ -1,14 +1,8 @@
-{ pkgs, config, ... }:
-
-let
-
-  pkgsUnstable = import <nixpkgs-unstable> {};
-
-in
+{ inputs, pkgs, config, ... }:
 
 {
   home.packages = [
-    pkgsUnstable.vscode
+    pkgs.unstable.protontricks
   ];
 
   # …

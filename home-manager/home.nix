@@ -26,8 +26,11 @@
     ./apps/kitty.nix
     ./apps/unfree.nix
 
+    ./apps/unstable.nix
+
     ./config/aliases.nix
     ./config/vars.nix
+
   ];
 
   nixpkgs = {
@@ -83,7 +86,7 @@
 
       # gaming
       steam
-      protontricks
+      # protontricks
 
       # python tools
       python311Full
