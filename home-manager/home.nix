@@ -93,6 +93,9 @@
       python311Packages.pip
       python311Packages.meson
       pipx
+
+      #general desktop
+      scribus
     ];
   };
 
