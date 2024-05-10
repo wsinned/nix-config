@@ -72,7 +72,7 @@
       gzip
       htop
       meslo-lgs-nf
-      neofetch
+      fastfetch
       p7zip
       qpdf
       tutanota-desktop
