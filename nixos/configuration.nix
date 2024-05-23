@@ -160,6 +160,11 @@
   # Ensure we have a default java
   programs.java.enable = true;
 
+  # allow running unpatched dynamic binaries on NixOS
+  # Needed to build Native Aot compiled programs in dotnet core
+  # https://nixos.wiki/wiki/DotNET
+  programs.nix-ld.enable = true;
+
   # enable steam
   programs.steam.enable = true;
   
