@@ -20,9 +20,9 @@
     nix-gens = "nix profile history --profile /nix/var/nix/profiles/system";
 
 
-    thisWeek = "take-note --thisWeek $args";
-    nextWeek = "take-note --nextWeek $args";
-    lastWeek = "take-note --lastWeek $args";
+    thisWeek = "take-note --thisWeek --notesFolder $NOTES_FOLDER --workspace notes.code-workspace --template Home-weekly-log-template.md --batch 5";
+    nextWeek = "take-note --nextWeek --notesFolder $NOTES_FOLDER --workspace notes.code-workspace --template Home-weekly-log-template.md --batch 5";
+    lastWeek = "take-note --lastWeek --notesFolder $NOTES_FOLDER --workspace notes.code-workspace --template Home-weekly-log-template.md --batch 5";
   
   };
 }
