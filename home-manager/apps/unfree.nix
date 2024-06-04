@@ -9,6 +9,7 @@
    	google-chrome
 		meld
 		insync
+		zoom-us
 		
 	];
 }

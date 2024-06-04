@@ -66,6 +66,7 @@
 
     packages = with pkgs; [
       bitwarden
+      brave
       dropbox-cli
       firefox
       ffmpeg
