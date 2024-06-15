@@ -182,6 +182,7 @@
     curl
     wget
     neovim
+    vimPlugins.LazyVim
     git
     helix
     zsh
@@ -192,7 +193,9 @@
     # Gnome basics
     # Don't forget to enable them in the Extensions App
     gnomeExtensions.appindicator
-    gnomeExtensions.gtile
+    gnomeExtensions.tactile
+    gnomeExtensions.just-perfection
+    gnomeExtensions.blur-my-shell
     gnomeExtensions.auto-move-windows
     gnomeExtensions.hibernate-status-button
   ];
