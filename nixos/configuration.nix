@@ -30,7 +30,7 @@
   # enable avahi dns
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     ipv4 = true;
     publish = {
       enable = true;
@@ -78,8 +78,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "gb";
-    xkbVariant = "";
+    xkb.layout = "gb";
+    xkb.variant = "";
   };
 
   # Configure console keymap
