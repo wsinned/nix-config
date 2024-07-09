@@ -43,3 +43,11 @@ You may need to update hardware-configuration.nix for any new disk identifiers.
 
 This configuration was inspired by [Nix Starter Config](https://github.com/Misterio77/nix-starter-configs) and [Misterio77's personal config](https://github.com/misterio77/nix-config)
 
+## Cleanup
+
+To keep disk space under control, run the following periodically:
+```bash
+nix-collect-garbage --delete-older-than 10d 
+sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system 10d
+sudo nixos-rebuild switch --upgrade --flake .  # removes old entries from /boot/loader/entries/
+```
