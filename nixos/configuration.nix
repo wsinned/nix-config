@@ -177,12 +177,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     curl
     wget
-    neovim
-    vimPlugins.LazyVim
     git
     helix
     zsh
@@ -200,7 +198,25 @@
     gnomeExtensions.hibernate-status-button
   ];
 
+  systemd.user.services.maestral = {
+    enable = true;
+    description = "Maestral daemon";
+    wantedBy = [ "default.target" ];
+    script = "${pkgs.maestral}/bin/maestral start -f";
+    preStop = "${pkgs.maestral}/bin/maestral stop";
+    onFailure = [ "send-failure-email@%n.service" ];
 
+    unitConfig.ConditionUser = "!@system";
+
+    serviceConfig = {
+      Type = "notify";
+      NotifyAccess = "all";
+      WatchdogSec = "30s";
+      PrivateTmp = true;
+      ProtectSystem = "full";
+      Restart = "always";
+    };
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

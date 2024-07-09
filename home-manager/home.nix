@@ -67,7 +67,7 @@
     packages = with pkgs; [
       bitwarden
       brave
-      dropbox-cli
+      maestral-gui
       firefox
       ffmpeg
       gzip
@@ -103,6 +103,12 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 
   # These are needed for desktop files and font registration
   targets.genericLinux.enable = true;
