@@ -108,6 +108,10 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    extraConfig = (lib.fileContents ../.config/nixpkgs/neovim.nix) + '' 
+  3   set number relativenumber
+      set colorscheme slate
+4   '';
   };
 
   # These are needed for desktop files and font registration
