@@ -110,7 +110,7 @@
     vimAlias = true;
     extraConfig = '' 
       set number relativenumber
-      set colorscheme slate
+      colorscheme slate
     '';
   };
 
