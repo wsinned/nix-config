@@ -50,7 +50,7 @@ To keep packages up to date all together, run the following:
 
 ```bash
 nix flake update
-sudo nixos-rebuild switch --upgrade --flake .
+sudo nixos-rebuild switch --flake .
 ```
 
 ## Cleanup
@@ -60,5 +60,5 @@ To keep disk space under control, run the following periodically:
 ```bash
 sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system 10d
 nix-collect-garbage --delete-older-than 10d 
-sudo nixos-rebuild switch --upgrade --flake .  # removes old entries from /boot/loader/entries/
+sudo nixos-rebuild switch --flake .  # removes old entries from /boot/loader/entries/
 ```

@@ -15,6 +15,7 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -23,6 +24,7 @@
     ./apps/git.nix
     ./apps/gh.nix
     ./apps/helix.nix
+    ./apps/nixvim.nix
     ./apps/kitty.nix
     ./apps/unfree.nix
 
@@ -104,15 +106,6 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    extraConfig = '' 
-      set number relativenumber
-      colorscheme slate
-    '';
-  };
 
   # These are needed for desktop files and font registration
   targets.genericLinux.enable = true;

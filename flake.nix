@@ -13,6 +13,11 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixvim = {
+        url = "github:nix-community/nixvim/nixos-24.05";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # TODO: Add any other flake you might need
     hardware.url = "github:nixos/nixos-hardware";
 
@@ -21,7 +26,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, ...} @ inputs: 
+  outputs = { self, nixpkgs, home-manager, nixvim, ...} @ inputs: 
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
@@ -56,12 +61,24 @@
       # Main personal laptop
       dw-apollo = lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [ ./hosts/dw-apollo ];
+        modules = [ 
+          ./hosts/dw-apollo 
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+          }
+        ];
       };
       # Spare laptop for experiments
       dw-dell = lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [ ./hosts/dw-dell ];
+        modules = [ 
+          ./hosts/dw-dell
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+          }
+          ];
       };
     };
 
