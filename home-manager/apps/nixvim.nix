@@ -6,7 +6,12 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    colorscheme = "slate";
+    # colorscheme = "slate";
+    
+    globals = {
+      mapleader = " ";
+      maplocalleader = " ";
+    };
 
     clipboard = {
       # Use system clipboard
@@ -45,6 +50,16 @@
 
     plugins.lazygit.enable = true;
     plugins.which-key.enable = true;
+    plugins.nvim-autopairs.enable = true;
+
+    colorschemes = {
+      gruvbox = {
+        enable = true;
+        settings = {
+          transparent_mode = true;
+        };
+      };
+    };
 
     keymaps = [
       {
@@ -52,6 +67,30 @@
         key = "<leader>e";
         action = "<cmd>Neotree toggle<cr>";
         options = {desc = "Open/Close Neotree";};
+      }
+      {
+        mode = "n";
+        key = "<leader>gg";
+        action = "<cmd>LazyGit<CR>";
+        options = {desc = "LazyGit (root dir)";};
+      }
+      {
+        mode = "n";
+        key = "<C-c>";
+        action = ":b#<CR>";
+        options = {desc = "back and fourth between the two most recent files";};
+      }
+      {
+        mode = "n";
+        key = "<leader>h";
+        action = "<C-w>h";
+        options = {desc = "Navigate to left window";};
+      }
+      {
+        mode = "n";
+        key = "<leader>l";
+        action = "<C-w>l";
+        options = {desc = "Navigate to right window";};
       }
     ];
 
