@@ -63,10 +63,6 @@
         specialArgs = {inherit inputs outputs;};
         modules = [ 
           ./hosts/dw-apollo 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = {inherit inputs;};
-          }
         ];
       };
       # Spare laptop for experiments
@@ -74,10 +70,6 @@
         specialArgs = {inherit inputs outputs;};
         modules = [ 
           ./hosts/dw-dell
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = {inherit inputs;};
-          }
           ];
       };
     };

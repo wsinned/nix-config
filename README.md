@@ -44,6 +44,14 @@ You may need to update hardware-configuration.nix for any new disk identifiers.
 
 This configuration was inspired by [Nix Starter Config](https://github.com/Misterio77/nix-starter-configs) and [Misterio77's personal config](https://github.com/misterio77/nix-config)
 
+## Test New Config
+
+Make the desired changes and then:
+
+```bash
+sudo nixos-rebuild test --flake .
+```
+
 ## Updates
 
 To keep packages up to date all together, run the following:
