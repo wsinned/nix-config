@@ -54,9 +54,16 @@
 
     colorschemes = {
       gruvbox = {
-        enable = true;
+        enable = false;
         settings = {
           transparent_mode = true;
+        };
+      };
+      tokyonight = {
+        enable = true;
+        settings = {
+          style = "night";
+          transparent = true;
         };
       };
     };
@@ -78,7 +85,7 @@
         mode = "n";
         key = "<C-c>";
         action = ":b#<CR>";
-        options = {desc = "back and fourth between the two most recent files";};
+        options = {desc = "back and forth between the two most recent files";};
       }
       {
         mode = "n";
@@ -91,6 +98,12 @@
         key = "<leader>l";
         action = "<C-w>l";
         options = {desc = "Navigate to right window";};
+      }
+      {
+        mode = "n";
+        key = "<leader>w";
+        action = ":WhichKey<CR>";
+        options = {desc = "Opens WhichKey to explain mappings.";};
       }
     ];
 

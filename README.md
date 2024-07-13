@@ -46,7 +46,7 @@ This configuration was inspired by [Nix Starter Config](https://github.com/Miste
 
 ## Test New Config
 
-Make the desired changes and then:
+This is very useful to try out changes quickly without polluting the boot menu with every attempt. Make the desired changes and then:
 
 ```bash
 sudo nixos-rebuild test --flake .
