@@ -66,6 +66,7 @@ sudo nixos-rebuild switch --flake .
 To keep disk space under control, run the following periodically:
 
 ```bash
+la /boot/loader/entries  # list entries to identify any to keep/remove
 sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system 10d
 nix-collect-garbage --delete-older-than 10d 
 sudo nixos-rebuild switch --flake .  # removes old entries from /boot/loader/entries/
