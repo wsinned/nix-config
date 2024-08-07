@@ -105,6 +105,12 @@
         action = ":WhichKey<CR>";
         options = {desc = "Opens WhichKey to explain mappings.";};
       }
+      {
+        mode = "n";
+        key = "<leader>b";
+        action = ":Neotree toggle focus buffers right<CR>";
+        options = {desc = "Toggles a focused window of open buffers on the right";};
+      }
     ];
 
   };
