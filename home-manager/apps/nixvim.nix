@@ -52,6 +52,8 @@
     plugins.which-key.enable = true;
     plugins.nvim-autopairs.enable = true;
 
+    # extraPlugins = [ pkgs.vimPlugins.everforest-nvim ];
+
     colorschemes = {
       gruvbox = {
         enable = false;
@@ -59,12 +61,23 @@
           transparent_mode = true;
         };
       };
-      tokyonight = {
+      vscode = {
         enable = true;
         settings = {
-          style = "night";
+        };
+      };
+      tokyonight = {
+        enable = false;
+        settings = {
+          style = "storm";
           transparent = true;
         };
+      };
+      kanagawa = {
+        enable = false;
+      };
+      melange = {
+        enable = false;
       };
     };
 
