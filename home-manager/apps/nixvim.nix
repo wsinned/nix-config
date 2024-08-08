@@ -45,12 +45,25 @@
     plugins.neo-tree = {
       enable = true;
       enableGitStatus = true;
-
     };
 
     plugins.lazygit.enable = true;
     plugins.which-key.enable = true;
     plugins.nvim-autopairs.enable = true;
+
+    # intellisense support
+    plugins.coq-nvim = {
+      enable = true;
+      installArtifacts = true;
+      artifactsPackage = pkgs.vimPlugins.coq-artifacts;
+    };
+
+    plugins.coq-thirdparty = {
+      enable = true;
+      package = pkgs.vimPlugins.coq-thirdparty;
+    };
+
+    plugins.lsp.enable = true;
 
     # extraPlugins = [ pkgs.vimPlugins.everforest-nvim ];
 

@@ -187,6 +187,8 @@
     mc
     duf
     nvd # Nix/NixOS package version diff tool
+    universal-ctags
+
 
     # Gnome basics
     # Don't forget to enable them in the Extensions App
