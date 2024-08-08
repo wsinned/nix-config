@@ -6,7 +6,7 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    # colorscheme = "slate";
+    # colorscheme = "slate"; # standard builtin schemes
     
     globals = {
       mapleader = " ";
@@ -55,29 +55,22 @@
     # extraPlugins = [ pkgs.vimPlugins.everforest-nvim ];
 
     colorschemes = {
-      gruvbox = {
-        enable = false;
-        settings = {
-          transparent_mode = true;
-        };
-      };
       vscode = {
         enable = true;
         settings = {
+          style = "light";
+          transparent = false;
+          disable_nvimtree_bg = true;
+          italic_comments = true;
+          underline_links = true;
         };
       };
       tokyonight = {
         enable = false;
         settings = {
-          style = "storm";
-          transparent = true;
+          style = "day";
+          transparent = false;
         };
-      };
-      kanagawa = {
-        enable = false;
-      };
-      melange = {
-        enable = false;
       };
     };
 
