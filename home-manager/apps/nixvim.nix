@@ -54,7 +54,7 @@
     # intellisense support
     plugins.coq-nvim = {
       enable = true;
-      autoStart = "shut-up";
+      settings.auto-start = "shut-up";
       installArtifacts = true;
       artifactsPackage = pkgs.vimPlugins.coq-artifacts;
     };
