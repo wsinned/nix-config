@@ -198,7 +198,6 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.auto-move-windows
     gnomeExtensions.hibernate-status-button
-    gnomeExtensions.bluetooth-battery
     gnomeExtensions.bluetooth-battery-meter
   ];
 
