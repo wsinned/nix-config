@@ -7,6 +7,6 @@
     NOTES_FOLDER = "$HOME/Insync/denniswoodruffuk@gmail.com/Google\ Drive/Notes";
 
     # default editor
-    EDITOR = "hx";
+    EDITOR = "vi";
   };
 }
