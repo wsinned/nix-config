@@ -51,6 +51,14 @@
     plugins.which-key.enable = true;
     plugins.nvim-autopairs.enable = true;
 
+    plugins.comment = {
+      enable = true;
+      settings = {
+        opleader.line = "<C-/>";
+        toggler.line = "<C-/>";
+      };
+    };
+
     # intellisense support
     plugins.coq-nvim = {
       enable = true;
