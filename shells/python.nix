@@ -28,6 +28,7 @@ in pkgs.mkShell {
         ms-python.python
         ms-python.debugpy
         charliermarsh.ruff
+        tamasfe.even-better-toml
       ];
     })
   ];

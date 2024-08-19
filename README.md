@@ -71,3 +71,7 @@ sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system 10d
 nix-collect-garbage --delete-older-than 10d 
 sudo nixos-rebuild switch --flake .  # removes old entries from /boot/loader/entries/
 ```
+
+## Dev Shell Templates
+
+The `shells/` folder provides base shell templates for dev environments. See the [README](shells/README.md).

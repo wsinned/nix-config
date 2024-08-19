@@ -16,6 +16,7 @@ in pkgs.mkShell {
       vscodeExtensions = with vscode-extensions; [
         asvetliakov.vscode-neovim
         rust-lang.rust-analyzer
+        tamasfe.even-better-toml
       ];
     })
   ];
