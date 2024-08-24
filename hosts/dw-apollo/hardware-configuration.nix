@@ -40,4 +40,26 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+
+  # See: https://nixos.wiki/wiki/Intel_Graphics
+  # And: https://nixos.wiki/wiki/Accelerated_Video_Playback
+  # For the source of this config
+  # iHD doesn't use the GPU, but i965 does 
+  # accoring to testing intel_gpu_top from pkgs.intel-gpu-tools
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      # intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      libvdpau-va-gl
+
+      # vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
+      # onevpl-intel-gpu  # for newer GPUs on NixOS <= 24.05
+      intel-media-sdk   # for older GPUs
+    ];
+  };
+  
+  # Force intel-media-driver or intel-vaapi-driver
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "i965"; }; 
 }

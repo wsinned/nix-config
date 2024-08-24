@@ -188,6 +188,7 @@
     duf
     nvd # Nix/NixOS package version diff tool
     universal-ctags
+    intel-gpu-tools
 
 
     # Gnome basics
