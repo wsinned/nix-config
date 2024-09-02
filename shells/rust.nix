@@ -11,6 +11,7 @@ in pkgs.mkShell {
   buildInputs = with pkgs; [ 
     cargo 
     rustc
+    rustfmt
     exercism
     (vscode-with-extensions.override { 
       vscodeExtensions = with vscode-extensions; [
