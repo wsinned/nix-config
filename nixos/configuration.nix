@@ -203,7 +203,7 @@
   ];
 
   systemd.user.services.maestral = {
-    enable = true;
+    enable = false;
     description = "Maestral daemon";
     wantedBy = [ "default.target" ];
     script = "${pkgs.maestral}/bin/maestral start -f";
