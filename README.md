@@ -59,6 +59,7 @@ To keep packages up to date all together, run the following:
 ```bash
 nix flake update
 sudo nixos-rebuild switch --flake .
+sudo nice -n 19 nixos-rebuild switch --flake . #if the system seems unresponsive during rebuilds, try this.
 ```
 
 ## Cleanup
