@@ -27,6 +27,7 @@
     ./apps/nixvim.nix
     ./apps/kitty.nix
     ./apps/unfree.nix
+    ./apps/vscode.nix
 
     ./apps/unstable.nix
 
@@ -86,6 +87,7 @@
       # generic devtools
       direnv
       ltex-ls
+      nix-direnv
 
       # gaming
       steam
@@ -99,6 +101,9 @@
 
       #general desktop
       scribus
+
+      #performance tools
+      geekbench
     ];
   };
 

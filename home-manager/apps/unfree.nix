@@ -5,7 +5,6 @@
 
 		discord
 		slack
-		vscode
    	google-chrome
 		meld
 		insync

@@ -8,7 +8,7 @@
 	    syntaxHighlighting.enable = true;
 	    oh-my-zsh = {
 	      enable = true;
-	      plugins = [ "git" "docker-compose" "docker" "asdf" ];
+	      plugins = [ "git" "docker-compose" "docker" "direnv" ];
 	    };
 	    initExtraBeforeCompInit = ''
 	      # p10k instant prompt
