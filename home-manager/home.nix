@@ -83,6 +83,7 @@
       tree
       ulauncher
       zsh-powerlevel10k
+      yazi
       
       # generic devtools
       direnv
