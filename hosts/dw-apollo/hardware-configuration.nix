@@ -47,7 +47,7 @@
   # For the source of this config
   # iHD doesn't use the GPU, but i965 does 
   # accoring to testing intel_gpu_top from pkgs.intel-gpu-tools
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       # intel-media-driver # LIBVA_DRIVER_NAME=iHD

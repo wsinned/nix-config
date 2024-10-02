@@ -28,6 +28,7 @@
     ./apps/kitty.nix
     ./apps/unfree.nix
     ./apps/vscode.nix
+    ./apps/yazi.nix
 
     ./apps/unstable.nix
 
@@ -83,7 +84,6 @@
       tree
       ulauncher
       zsh-powerlevel10k
-      yazi
       
       # generic devtools
       direnv

@@ -47,6 +47,7 @@
       enableGitStatus = true;
     };
 
+    plugins.web-devicons.enable = true;
     plugins.lazygit.enable = true;
     plugins.which-key.enable = true;
     plugins.nvim-autopairs.enable = true;

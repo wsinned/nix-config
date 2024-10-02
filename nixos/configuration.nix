@@ -67,13 +67,13 @@
 
   environment.gnome.excludePackages = (with pkgs; [
     epiphany # web browser
-    gnome.gnome-calendar
-    gnome.gnome-contacts
-    gnome.gnome-music
+    gnome-calendar
+    gnome-contacts
+    gnome-music
     gnome-photos
     gnome-tour
-    gnome.gnome-weather
-    gnome.geary # email reader
+    gnome-weather
+    geary # email reader
   ]);
 
   # Configure keymap in X11
@@ -90,7 +90,7 @@
 
   # gnome-settings udev rules
   # Needed for some Gnome extensions
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
 
   # Flatpak
@@ -113,7 +113,6 @@
   };
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -200,6 +199,7 @@
     gnomeExtensions.auto-move-windows
     gnomeExtensions.hibernate-status-button
     gnomeExtensions.bluetooth-battery-meter
+    gnomeExtensions.vitals
   ];
 
   systemd.user.services.maestral = {
