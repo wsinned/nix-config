@@ -12,6 +12,7 @@
         ms-python.debugpy
         charliermarsh.ruff
         tamasfe.even-better-toml
+        denoland.vscode-deno
       ];
     })
 	];
