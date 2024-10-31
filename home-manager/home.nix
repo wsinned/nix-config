@@ -105,6 +105,7 @@
 
       #performance tools
       geekbench
+      mission-center
     ];
   };
 
