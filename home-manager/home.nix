@@ -102,6 +102,7 @@
 
       #general desktop
       scribus
+      obsidian
 
       #performance tools
       geekbench
