@@ -106,7 +106,7 @@
 
       #performance tools
       geekbench
-      mission-center
+      # mission-center # broken on unstable with 25.05 as of 18/11/24
     ];
   };
 

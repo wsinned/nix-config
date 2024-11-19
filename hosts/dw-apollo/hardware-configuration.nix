@@ -72,7 +72,7 @@
 
   
   # Force intel-media-driver or intel-vaapi-driver
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD5"; }; 
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; 
 
   environment.variables = {
     VDPAU_DRIVER = "va_gl";
