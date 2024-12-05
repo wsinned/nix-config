@@ -95,9 +95,10 @@
       # protontricks
 
       # python tools
-      python311Full
-      python311Packages.pip
-      python311Packages.meson
+      python312Full
+      python312Packages.pip
+      python312Packages.meson
+      poetry
       pipx
 
       #general desktop
