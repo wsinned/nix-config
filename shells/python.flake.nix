@@ -1,5 +1,5 @@
 {
-  description = "A Nix-flake-based Node development environment";
+  description = "A Nix-flake-based Python development environment";
 
   # GitHub URLs for the Nix inputs we're using
   inputs = {
@@ -15,11 +15,26 @@
         overlays = [
         ];
 
-        # System-specific nixpkgs
+        # System-specific nixpkg
         pkgs = import nixpkgs { inherit system overlays; };
 
-        # Other utilities commonly used in Node projects
-        others = with pkgs; [ nodejs-slim_22 ];
+        # Other utilities commonly used in Python projects
+        others = with pkgs; [ 
+        
+          (pkgs.python312.withPackages (python-pkgs: [
+            # select Python packages here
+            python-pkgs.pip
+            python-pkgs.setuptools
+            python-pkgs.wheel
+            python-pkgs.build
+            python-pkgs.twine
+            python-pkgs.pytest
+            python-pkgs.dateutils
+          ]))
+          exercism
+          ruff
+        ];
+        
       in {
         devShells = {
           default = pkgs.mkShell {
@@ -28,7 +43,7 @@
 
             # Run when the shell is started up
             shellHook = ''
-              node --version
+              python --version
             '';
           };
         };

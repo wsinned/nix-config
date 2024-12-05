@@ -9,13 +9,13 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, rust-overlay }:
+  outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlays = [
         ];
 
-        # System-specific nixpkgs with rust-overlay applied
+        # System-specific nixpkgs
         pkgs = import nixpkgs { inherit system overlays; };
 
         # Other utilities commonly used in Deno projects
