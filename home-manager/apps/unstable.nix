@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    pkgs.unstable.protontricks
+    # pkgs.unstable.protontricks
   ];
 
   # …

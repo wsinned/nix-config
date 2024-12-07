@@ -4,7 +4,7 @@ Repo for Nix Flakes based configuration of NixOS (and possibly standalone Nix la
 
 ## Getting started
 
-Grab the latest NixOS installer for your preferred desktop environment, e.g. Gnome https://channels.nixos.org/nixos-23.11/latest-nixos-gnome-x86_64-linux.iso
+Grab the latest NixOS installer for your preferred desktop environment, e.g. Gnome <https://channels.nixos.org/nixos-23.11/latest-nixos-gnome-x86_64-linux.iso>
 
 - Note: I had trouble getting past Stage 1 of the boot on this installer with my old Dell E6230, and ended up using a slightly older build of the installer.
 
@@ -76,3 +76,22 @@ sudo nixos-rebuild switch --flake .  # removes old entries from /boot/loader/ent
 ## Dev Shell Templates
 
 The `shells/` folder provides base shell templates for dev environments. See the [README](shells/README.md).
+
+## Flapaks
+
+In an attempt to cut down on system freezing builds on unstable branch, I'm experimeting with using flatpaks.
+
+These can be managed in their own lifecycle and upgraded as needed.
+flatpak.txt contains the current list of flatpaks in use.
+
+To generate the list use:
+
+```bash
+flatpak list --columns=application --app > flatpaks.txt
+```
+
+To reinstall from scratch use:
+
+```bash
+xargs flatpak install -y < flatpaks.txt
+```

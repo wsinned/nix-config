@@ -23,7 +23,6 @@
     ./apps/oh-my-zsh.nix
     ./apps/git.nix
     ./apps/gh.nix
-    ./apps/helix.nix
     ./apps/nixvim.nix
     ./apps/kitty.nix
     ./apps/unfree.nix
@@ -71,7 +70,6 @@
     packages = with pkgs; [
       bitwarden
       brave
-      maestral-gui
       firefox
       ffmpeg
       gzip
@@ -80,19 +78,13 @@
       fastfetch
       p7zip
       qpdf
-      tutanota-desktop
       tree
-      ulauncher
       zsh-powerlevel10k
       
       # generic devtools
       direnv
       ltex-ls
       nix-direnv
-
-      # gaming
-      steam
-      # protontricks
 
       # python tools
       python312Full
@@ -101,13 +93,6 @@
       poetry
       pipx
 
-      #general desktop
-      scribus
-      obsidian
-
-      #performance tools
-      geekbench
-      # mission-center # broken on unstable with 25.05 as of 18/11/24
     ];
   };
 
