@@ -8,3 +8,4 @@ md.obsidian.Obsidian
 net.scribus.Scribus
 org.gnome.meld
 us.zoom.Zoom
+com.visualstudio.code
