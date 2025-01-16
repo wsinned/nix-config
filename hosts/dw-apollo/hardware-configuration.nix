@@ -44,13 +44,13 @@
   # X11 / Wayland settings
   services.xserver = {
      enable = true;
-     videoDrivers = [ "intel" ];
+     videoDrivers = [ "modesetting" ];
   };
 
-  # Load libva driver for accelerated video
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
+  # # Load libva driver for accelerated video
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+  # };
 
   # See: https://nixos.wiki/wiki/Intel_Graphics
   # And: https://nixos.wiki/wiki/Accelerated_Video_Playback
@@ -61,20 +61,20 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      libvdpau-va-gl
+      # intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      # libvdpau-va-gl
 
-      vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
-      intel-media-sdk   # for older GPUs
+      # vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
+      # intel-media-sdk   # for older GPUs
     ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+    # extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   };
 
   
   # Force intel-media-driver or intel-vaapi-driver
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; 
 
-  environment.variables = {
-    VDPAU_DRIVER = "va_gl";
-  };
+  # environment.variables = {
+  #   VDPAU_DRIVER = "va_gl";
+  # };
 }
