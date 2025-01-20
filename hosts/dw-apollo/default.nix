@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../nixos/configuration.nix
+    ../../nixos/gnome.nix
   ];
 
   # Bootloader.
