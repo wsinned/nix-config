@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ../../nixos/configuration.nix
     ../../nixos/gnome.nix
+    ../../nixos/i3.nix
   ];
 
   # Bootloader.
