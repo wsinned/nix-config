@@ -20,13 +20,20 @@
     extraPackages = with pkgs; [
       rofi
       i3status
-      i3lock
+      i3lock-blur
       i3blocks
+
+      # Display handling
+      xorg.xrandr
+      arandr
     ];
   };
 
   services.displayManager.defaultSession =  "none+i3";
 
+  services.autorandr = {
+    enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     gnome-keyring
@@ -35,7 +42,6 @@
     pasystray
     polkit_gnome
     pulseaudioFull
-    awesome
   ];
 
   programs = {
