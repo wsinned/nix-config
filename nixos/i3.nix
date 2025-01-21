@@ -20,7 +20,7 @@
     extraPackages = with pkgs; [
       rofi
       i3status
-      i3lock-blur
+      i3lock-fancy-rapid
       i3blocks
 
       # Display handling
