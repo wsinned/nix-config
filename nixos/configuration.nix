@@ -67,6 +67,9 @@
     xkb.variant = "";
   };
 
+  services.libinput.touchpad.naturalScrolling = true;
+  services.libinput.mouse.naturalScrolling = true;
+
   # Configure console keymap
   console.keyMap = "uk";
 
