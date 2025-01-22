@@ -20,8 +20,7 @@
     extraPackages = with pkgs; [
       rofi
       i3status
-      i3lock-fancy-rapid
-      i3blocks
+      i3lock
 
       # Display handling
       xorg.xrandr
@@ -37,11 +36,15 @@
 
   environment.systemPackages = with pkgs; [
     gnome-keyring
+    seahorse
     networkmanagerapplet
     nitrogen
     pasystray
     polkit_gnome
     pulseaudioFull
+
+    # Image viewing
+    xfce.ristretto
   ];
 
   programs = {
