@@ -26,7 +26,7 @@
     ./apps/nixvim.nix
     ./apps/kitty.nix
     ./apps/unfree.nix
-    # ./apps/vscode.nix
+    ./apps/vscode.nix
     ./apps/yazi.nix
 
     ./apps/unstable.nix
