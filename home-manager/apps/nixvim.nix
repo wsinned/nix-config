@@ -78,18 +78,8 @@
     # extraPlugins = [ pkgs.vimPlugins.everforest-nvim ];
 
     colorschemes = {
-      vscode = {
-        enable = true;
-        settings = {
-          style = "light";
-          transparent = false;
-          disable_nvimtree_bg = true;
-          italic_comments = true;
-          underline_links = true;
-        };
-      };
       tokyonight = {
-        enable = false;
+        enable = true;
         settings = {
           style = "day";
           transparent = false;
