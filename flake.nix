@@ -4,11 +4,15 @@
   inputs = {
     # Nixpkgs
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+    
+    # Only for cosmic desktop
+    nixpkgs.follows = "nixos-cosmic/nixpkgs-stable";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -28,7 +32,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ...} @ inputs: 
+  outputs = { self, nixpkgs, home-manager, nixvim, nixos-cosmic, ...} @ inputs: 
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
@@ -73,6 +77,22 @@
         modules = [ 
           ./hosts/dw-dell
           ];
+      };
+      # test laptop for experiments
+      dw-hp-lt = lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [ 
+          ./hosts/dw-hp-lt
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
+          # note including configuration here and not in teh dw-hp-lt/default.nix
+          ./configuration.nix
+        ];
       };
     };
 

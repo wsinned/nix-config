@@ -20,19 +20,19 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    ./apps/oh-my-zsh.nix
+    # ./apps/oh-my-zsh.nix
     ./apps/git.nix
     ./apps/gh.nix
     ./apps/nixvim.nix
     ./apps/kitty.nix
     ./apps/unfree.nix
-    ./apps/vscode.nix
+    # ./apps/vscode.nix
     ./apps/yazi.nix
 
     ./apps/unstable.nix
 
-    ./config/aliases.nix
-    ./config/vars.nix
+    # ./config/aliases.nix
+    # ./config/vars.nix
 
   ];
 
@@ -68,29 +68,29 @@
     homeDirectory = "/home/wsinned";
 
     packages = with pkgs; [
-      bitwarden
-      brave
-      firefox
+      # bitwarden
+      # brave
+      # firefox
       ffmpeg
       gzip
       htop
       meslo-lgs-nf
       fastfetch
       p7zip
-      qpdf
+      # qpdf
       tree
-      zsh-powerlevel10k
+      # zsh-powerlevel10k
       
       # generic devtools
       direnv
-      ltex-ls
+      # ltex-ls
       nix-direnv
 
       # python tools
-      python312Full
-      python312Packages.pip
-      python312Packages.meson
-      poetry
+      # python312Full
+      # python312Packages.pip
+      # python312Packages.meson
+      # poetry
       pipx
 
     ];
@@ -110,5 +110,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion = "25.05";
 }
