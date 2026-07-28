@@ -49,6 +49,16 @@ Then install:
 sudo nixos-install --flake ~/code/nix-config#dw-dell
 ```
 
+After the first boot, join the machine to the tailnet interactively:
+
+```bash
+sudo tailscale up
+```
+
+The configuration deliberately does not commit a reusable Tailscale auth key.
+For unattended provisioning, supply an ephemeral or pre-authorised key at
+deployment time through a secrets mechanism rather than the Nix store.
+
 ## Test changes
 
 ```bash

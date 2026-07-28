@@ -35,6 +35,10 @@
     blueman.enable = true;
     printing.enable = true;
     openssh.enable = false;
+    tailscale = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 
   security.rtkit.enable = true;
