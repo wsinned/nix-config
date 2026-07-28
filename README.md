@@ -1,97 +1,65 @@
 # nix-config
 
-Repo for Nix Flakes based configuration of NixOS (and possibly standalone Nix later on).
+Minimal NixOS 26.05 configuration for `dw-dell`, using Niri on Wayland.
 
-## Getting started
+## Dotfiles
 
-Grab the latest NixOS installer for your preferred desktop environment, e.g. Gnome <https://channels.nixos.org/nixos-23.11/latest-nixos-gnome-x86_64-linux.iso>
+Application configuration remains in the separate
+[`tech-notes`](https://github.com/wsinned/tech-notes) repository. Home Manager
+creates out-of-store symlinks to that checkout, so the files:
 
-- Note: I had trouble getting past Stage 1 of the boot on this installer with my old Dell E6230, and ended up using a slightly older build of the installer.
+- remain editable;
+- are not duplicated in this repository or the Nix store;
+- can be shared by NixOS and non-NixOS machines;
+- can have a lifecycle independent from the operating-system configuration.
 
-Install the OS as usual. There aren't too many options apart from region and disk partitioning. I choose to encrypt my disk.
-
-Once booted into the fresh OS, open Console and do the following `sudo nano /etc/nixos/configuration.nix`
-
-Add the following directly after the "imports" section:
-
-```bash
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-```
-
-Save and exit nano, then activate the changes with:
+Clone both repositories at their standard locations before activating:
 
 ```bash
-  sudo nixos-rebuild switch
+git clone https://github.com/wsinned/nix-config ~/code/nix-config
+git clone https://github.com/wsinned/tech-notes ~/tech-notes
 ```
 
-Now that flakes are enabled, we can install a temporary copy of Git and clone the repo with the config.
+The shared desktop configuration currently links Niri, Waybar, Mako, Foot,
+swaylock, Vicinae, Wallust, Yazi, Neovim and the common scripts directory.
+Machine-specific behaviour should remain in the NixOS host module or be guarded
+by hostname in the shared dotfile.
+
+The current Niri file still contains an `eDP-1` mode for the source laptop and
+an Arch-specific PolicyKit startup command. NixOS starts PolicyKit separately,
+so that command merely becomes redundant. For long-term portability, remove the
+output block from the shared file and keep monitor settings in device-specific
+Niri fragments or an output-management tool.
+
+## Install
+
+The committed `dw-dell` hardware profile contains disk UUIDs from the previous
+installation. During a fresh installation, replace it with the profile generated
+for the actual disk layout:
 
 ```bash
-  nix shell nixpkgs#git
+sudo nixos-generate-config --root /mnt
+cp /mnt/etc/nixos/hardware-configuration.nix \
+  ~/code/nix-config/hosts/dw-dell/hardware-configuration.nix
 ```
 
-Nix will download Git and dependencies and then open a new shell session with it avaiable:
+Then install:
 
 ```bash
-  git clone https://github.com/wsinned/nix-config
+sudo nixos-install --flake ~/code/nix-config#dw-dell
 ```
 
-This will clone the config repo into your home folder.
-If this is a reinstall of an existing machine, check the details in hosts.
-You may need to update hardware-configuration.nix for any new disk identifiers.
-
-## Background
-
-This configuration was inspired by [Nix Starter Config](https://github.com/Misterio77/nix-starter-configs) and [Misterio77's personal config](https://github.com/misterio77/nix-config)
-
-## Test New Config
-
-This is very useful to try out changes quickly without polluting the boot menu with every attempt. Make the desired changes and then:
+## Test changes
 
 ```bash
-sudo nixos-rebuild test --flake .
+sudo nixos-rebuild dry-build --flake .#dw-dell
+sudo nixos-rebuild test --flake .#dw-dell
+sudo nixos-rebuild switch --flake .#dw-dell
 ```
 
-## Updates
-
-To keep packages up to date all together, run the following:
+Update pinned inputs deliberately:
 
 ```bash
 nix flake update
-sudo nixos-rebuild switch --flake .
-sudo nice -n 19 nixos-rebuild switch --flake . #if the system seems unresponsive during rebuilds, try this.
-```
-
-## Cleanup
-
-To keep disk space under control, run the following periodically:
-
-```bash
-la /boot/loader/entries  # list entries to identify any to keep/remove
-sudo nix-env --delete-generations --profile /nix/var/nix/profiles/system 10d
-nix-collect-garbage --delete-older-than 10d 
-sudo nixos-rebuild switch --flake .  # removes old entries from /boot/loader/entries/
-```
-
-## Dev Shell Templates
-
-The `shells/` folder provides base shell templates for dev environments. See the [README](shells/README.md).
-
-## Flapaks
-
-In an attempt to cut down on system freezing builds on unstable branch, I'm experimeting with using flatpaks.
-
-These can be managed in their own lifecycle and upgraded as needed.
-flatpak.txt contains the current list of flatpaks in use.
-
-To generate the list use:
-
-```bash
-flatpak list --columns=application --app > flatpaks.txt
-```
-
-To reinstall from scratch use:
-
-```bash
-xargs flatpak install -y < flatpaks.txt
+sudo nixos-rebuild test --flake .#dw-dell
 ```

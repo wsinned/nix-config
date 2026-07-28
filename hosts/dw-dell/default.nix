@@ -1,14 +1,20 @@
-{ pkgs, inputs, ... }: {
+{ ... }:
+
+{
   imports = [
     ./hardware-configuration.nix
-    ../../nixos/configuration.nix
+    ../../modules/core.nix
+    ../../modules/desktop/niri.nix
+    ../../home/wsinned
   ];
 
-  # Bootloader.
-  boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+  networking.hostName = "dw-dell";
+
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
-  networking.hostName = "dw-dell"; # Define your hostname.
+  # Keep this value at the release used for this fresh installation.
+  system.stateVersion = "26.05";
 }
