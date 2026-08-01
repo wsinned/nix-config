@@ -13,12 +13,12 @@
   outputs =
     { nixpkgs, home-manager, ... }@inputs:
     {
-      nixosConfigurations.dw-dell = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.dw-dell-01 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           home-manager.nixosModules.home-manager
-          ./hosts/dw-dell
+          ./hosts/dw-dell-01
         ];
       };
 

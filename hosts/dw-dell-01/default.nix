@@ -8,7 +8,11 @@
     ../../home/wsinned
   ];
 
-  networking.hostName = "dw-dell";
+  home-manager.users.wsinned.imports = [
+    ../../home/wsinned/vars.nix
+  ];
+
+  networking.hostName = "dw-dell-01";
 
   boot.loader = {
     systemd-boot.enable = true;

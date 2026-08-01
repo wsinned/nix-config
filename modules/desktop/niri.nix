@@ -2,8 +2,21 @@
 
 {
   programs.niri.enable = true;
+  
 
-  services.displayManager.gdm.enable = true;
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = ''
+        ${pkgs.tuigreet}/bin/tuigreet \
+          --time \
+          --remember \
+          --cmd ${pkgs.niri}/bin/niri-session
+      '';
+
+      user = "greeter";
+    };
+  };
 
   xdg.portal = {
     enable = true;
@@ -29,8 +42,8 @@
     swayidle
     swaylock
     foot
-    alacritty
-    kitty
+    neovim
+    
 
     # Launchers, menus and desktop integration used by the shared dotfiles
     vicinae
@@ -51,6 +64,12 @@
     libnotify
     wl-clipboard
     google-chrome
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.symbols-only
+    powerline-fonts
   ];
 
   # The tech-notes Niri config contains an Arch-specific /usr/lib command for

@@ -22,9 +22,14 @@
     ];
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
     firewall.enable = true;
   };
+
+  services.resolved.enable = true;
 
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -40,6 +45,8 @@
       openFirewall = true;
     };
   };
+
+  systemd.services.tailscaled.serviceConfig.TimeoutStopSec = "10s";
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -63,6 +70,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    helix
+    bash
   ];
 }
