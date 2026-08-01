@@ -64,5 +64,6 @@ in
     home-manager.enable = true;
     fish.enable = true;
     git.enable = true;
+    gh.enable = true;
   };
 }
