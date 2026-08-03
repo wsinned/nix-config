@@ -19,6 +19,7 @@
     pkg:
     builtins.elem (pkgs.lib.getName pkg) [
       "google-chrome"
+      "geekbench"
     ];
 
   networking = {
@@ -71,5 +72,6 @@
   environment.systemPackages = with pkgs; [
     git
     bash
+    geekbench
   ];
 }
