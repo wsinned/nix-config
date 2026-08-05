@@ -74,7 +74,11 @@ in
     timeouts = [
       {
         timeout = 300;
-        command = "${lockCommand} && ${pkgs.niri}/bin/niri msg action power-off-monitors";
+        command = lockCommand;
+      }
+      {
+        timeout = 600;
+        command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
         resumeCommand = "${pkgs.niri}/bin/niri msg action power-on-monitors";
       }
     ];
