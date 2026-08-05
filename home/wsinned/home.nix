@@ -9,6 +9,7 @@ let
   # The same checkout location is used on every Linux device. The files remain
   # owned by tech-notes and are linked rather than copied into the Nix store.
   dotfilesRoot = "${config.home.homeDirectory}/tech-notes/dotfiles";
+  lockCommand = "${pkgs.swaylock-effects}/bin/swaylock -f";
 
   managedConfigDirectories = [
     "foot"
@@ -65,5 +66,20 @@ in
     fish.enable = true;
     git.enable = true;
     gh.enable = true;
+  };
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 300;
+        command = "${lockCommand} && ${pkgs.niri}/bin/niri msg action power-off-monitors";
+        resumeCommand = "${pkgs.niri}/bin/niri msg action power-on-monitors";
+      }
+    ];
+    events = {
+      "before-sleep" = lockCommand;
+      lock = lockCommand;
+    };
   };
 }

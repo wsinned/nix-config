@@ -40,7 +40,7 @@
     mako
     swaybg
     swayidle
-    swaylock
+    swaylock-effects
     foot
     neovim
     
@@ -67,6 +67,7 @@
   ];
 
   fonts.packages = with pkgs; [
+    cantarell-fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only
     powerline-fonts
