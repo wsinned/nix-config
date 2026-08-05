@@ -1,6 +1,6 @@
 # nix-config
 
-Minimal NixOS 26.05 configuration for `dw-dell`, using Niri on Wayland.
+Minimal NixOS 26.05 configuration for `dw-dell-01`, using Niri on Wayland.
 
 ## Dotfiles
 
@@ -33,20 +33,20 @@ Niri fragments or an output-management tool.
 
 ## Install
 
-The committed `dw-dell` hardware profile contains disk UUIDs from the previous
+The committed `dw-dell-01` hardware profile contains disk UUIDs from the previous
 installation. During a fresh installation, replace it with the profile generated
 for the actual disk layout:
 
 ```bash
 sudo nixos-generate-config --root /mnt
 cp /mnt/etc/nixos/hardware-configuration.nix \
-  ~/code/nix-config/hosts/dw-dell/hardware-configuration.nix
+  ~/code/nix-config/hosts/dw-dell-01/hardware-configuration.nix
 ```
 
 Then install:
 
 ```bash
-sudo nixos-install --flake ~/code/nix-config#dw-dell
+sudo nixos-install --flake ~/code/nix-config#dw-dell-01
 ```
 
 After the first boot, join the machine to the tailnet interactively:
@@ -62,14 +62,14 @@ deployment time through a secrets mechanism rather than the Nix store.
 ## Test changes
 
 ```bash
-sudo nixos-rebuild dry-build --flake .#dw-dell
-sudo nixos-rebuild test --flake .#dw-dell
-sudo nixos-rebuild switch --flake .#dw-dell
+sudo nixos-rebuild dry-build --flake .#dw-dell-01
+sudo nixos-rebuild test --flake .#dw-dell-01
+sudo nixos-rebuild switch --flake .#dw-dell-01
 ```
 
 Update pinned inputs deliberately:
 
 ```bash
 nix flake update
-sudo nixos-rebuild test --flake .#dw-dell
+sudo nixos-rebuild test --flake .#dw-dell-01
 ```

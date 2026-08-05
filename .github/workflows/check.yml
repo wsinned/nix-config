@@ -13,4 +13,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@v19
       - run: nix flake check
-      - run: nix eval .#nixosConfigurations.dw-dell.config.system.build.toplevel.drvPath
+      - run: nix eval .#nixosConfigurations.dw-dell-01.config.system.build.toplevel.drvPath
