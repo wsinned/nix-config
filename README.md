@@ -16,7 +16,7 @@ creates out-of-store symlinks to that checkout, so the files:
 Clone both repositories at their standard locations before activating:
 
 ```bash
-git clone https://github.com/wsinned/nix-config ~/code/nix-config
+git clone https://github.com/wsinned/nix-config ~/nix-config
 git clone https://github.com/wsinned/tech-notes ~/tech-notes
 ```
 
@@ -73,3 +73,7 @@ Update pinned inputs deliberately:
 nix flake update
 sudo nixos-rebuild test --flake .#dw-dell-01
 ```
+
+## Nix Architecture
+
+![diagram](./dw-dell-01-configuration-diagram.png)
