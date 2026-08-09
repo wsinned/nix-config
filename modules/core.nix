@@ -7,7 +7,17 @@
       "flakes"
     ];
     auto-optimise-store = true;
+    substituters = [
+      "https://cache.nixos.org"
+      "https://nixos-raspberrypi.cachix.org"
+    ];
+
+    trusted-public-keys = [
+      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+    ];
   };
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   nix.gc = {
     automatic = true;
