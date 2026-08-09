@@ -14,39 +14,29 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/12b71446-5252-4b8f-a1b9-954393b02549";
+    { device = "/dev/mapper/luks-386e8169-a9fe-44e6-af0a-513e9cdc1356";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-195ba821-6494-47db-b21e-c6285026518b".device = "/dev/disk/by-uuid/195ba821-6494-47db-b21e-c6285026518b";
+  boot.initrd.luks.devices."luks-386e8169-a9fe-44e6-af0a-513e9cdc1356".device = "/dev/disk/by-uuid/386e8169-a9fe-44e6-af0a-513e9cdc1356";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6A9C-DA71";
+    { device = "/dev/disk/by-uuid/9586-AFB6";
       fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/22c9280b-ce58-4753-9fbf-35bb95512826"; }
-    ];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp59s0f1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp64s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  # X11 / Wayland settings
-  services.xserver = {
-     enable = true;
-     videoDrivers = [ "modesetting" ];
-  };
-
   # # Load libva driver for accelerated video
   # nixpkgs.config.packageOverrides = pkgs: {
   #   intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
@@ -55,7 +45,7 @@
   # See: https://nixos.wiki/wiki/Intel_Graphics
   # And: https://nixos.wiki/wiki/Accelerated_Video_Playback
   # For the source of this config
-  # iHD doesn't use the GPU, but i965 does 
+  # iHD doesn't use the GPU, but i965 does
   # accoring to testing intel_gpu_top from pkgs.intel-gpu-tools
   hardware.graphics = {
     enable = true;
@@ -70,9 +60,9 @@
     # extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   };
 
-  
+
   # Force intel-media-driver or intel-vaapi-driver
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; 
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
 
   # environment.variables = {
   #   VDPAU_DRIVER = "va_gl";

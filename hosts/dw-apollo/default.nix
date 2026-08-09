@@ -1,18 +1,25 @@
-{ pkgs, inputs, ... }: {
+
+{ ... }:
+
+{
   imports = [
     ./hardware-configuration.nix
-    ../../nixos/configuration.nix
-    ../../nixos/gnome.nix
-    ../../nixos/i3.nix
+    ../../modules/core.nix
+    ../../modules/desktop/niri.nix
+    ../../home/wsinned
   ];
 
-  # Bootloader.
-  boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+  home-manager.users.wsinned.imports = [
+    ../../home/wsinned/vars.nix
+  ];
 
-    initrd.luks.devices."luks-5ed9eb46-4414-4e23-a1db-626cc28aeb7f".device = "/dev/disk/by-uuid/5ed9eb46-4414-4e23-a1db-626cc28aeb7f";
+  networking.hostName = "dw-apollo";
+
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
-  networking.hostName = "dw-apollo"; # Define your hostname.
+  # Keep this value at the release used for this fresh installation.
+  system.stateVersion = "26.05";
 }

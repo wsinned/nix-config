@@ -13,6 +13,14 @@
   outputs =
     { nixpkgs, home-manager, ... }@inputs:
     {
+      nixosConfigurations.dw-apollo = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./hosts/dw-apollo
+        ];
+      };
       nixosConfigurations.dw-dell-01 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
