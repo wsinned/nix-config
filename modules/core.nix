@@ -30,6 +30,8 @@
     builtins.elem (pkgs.lib.getName pkg) [
       "google-chrome"
       "geekbench"
+      "obsidian"
+      "discord"
     ];
 
   networking = {
@@ -88,5 +90,6 @@
     neovim
     atuin
     starship
+    duf
   ];
 }

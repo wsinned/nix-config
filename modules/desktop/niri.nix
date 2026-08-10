@@ -2,7 +2,7 @@
 
 {
   programs.niri.enable = true;
-  
+
 
   services.greetd = {
     enable = true;
@@ -43,7 +43,7 @@
     swaylock-effects
     foot
     neovim
-    
+
 
     # Launchers, menus and desktop integration used by the shared dotfiles
     vicinae
@@ -64,6 +64,9 @@
     libnotify
     wl-clipboard
     google-chrome
+    discord
+    obsidian
+    eget
   ];
 
   fonts.packages = with pkgs; [
