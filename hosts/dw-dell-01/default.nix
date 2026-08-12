@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../modules/core.nix
     ../../modules/desktop/niri.nix
+    ../../modules/desktop/noctalia.nix
     ../../home/wsinned
   ];
 

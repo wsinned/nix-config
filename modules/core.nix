@@ -91,5 +91,7 @@
     atuin
     starship
     duf
+    btop
+    pika-backup
   ];
 }
