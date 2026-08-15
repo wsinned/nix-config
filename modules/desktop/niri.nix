@@ -11,7 +11,9 @@
         ${pkgs.tuigreet}/bin/tuigreet \
           --time \
           --remember \
-          --cmd ${pkgs.niri}/bin/niri-session
+          --cmd ${pkgs.niri}/bin/niri-session \
+          --asterisks \
+          --theme 'border=green;text=white;prompt=green;time=yellow;action=yellow;button=green;container=black;input=white'
       '';
 
       user = "greeter";
