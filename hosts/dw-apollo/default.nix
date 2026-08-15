@@ -1,5 +1,5 @@
 
-{ ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -19,6 +19,10 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+
+  environment.systemPackages = [
+    inputs.take-note.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 
   # Keep this value at the release used for this fresh installation.
   system.stateVersion = "26.05";
