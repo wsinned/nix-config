@@ -89,7 +89,6 @@
     git
     bash
     geekbench
-    zed-editor
     gh
     neovim
     atuin

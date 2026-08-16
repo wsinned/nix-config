@@ -25,6 +25,9 @@ let
   ];
 in
 {
+  imports = [
+    ./zed.nix
+  ];
 
   home = {
     username = "wsinned";
