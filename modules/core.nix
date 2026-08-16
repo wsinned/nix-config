@@ -32,6 +32,8 @@
       "geekbench"
       "obsidian"
       "discord"
+      "steam"
+      "steam-unwrapped"
     ];
 
   networking = {

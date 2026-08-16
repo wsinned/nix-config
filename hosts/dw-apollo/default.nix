@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ../../modules/core.nix
     ../../modules/desktop/niri.nix
+    ../../modules/gaming.nix
     ../../home/wsinned
   ];
 
