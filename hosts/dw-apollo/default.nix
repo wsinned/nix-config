@@ -1,4 +1,3 @@
-
 { inputs, pkgs, ... }:
 
 {
@@ -7,6 +6,7 @@
     ../../modules/core.nix
     ../../modules/desktop/niri.nix
     ../../modules/gaming.nix
+    ../../modules/dev.nix
     ../../home/wsinned
   ];
 

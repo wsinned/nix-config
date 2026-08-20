@@ -1,9 +1,8 @@
 { pkgs, ... }:
 
 {
-  programs.steam.enable = true;
-
   environment.systemPackages = with pkgs; [
-    arx-libertatis
+    direnv
+    nix-direnv
   ];
 }
