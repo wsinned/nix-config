@@ -1,0 +1,16 @@
+name: Check NixOS configuration
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v19
+      - run: nix flake check
+      - run: nix eval .#nixosConfigurations.dw-dell-01.config.system.build.toplevel.drvPath

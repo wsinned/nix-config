@@ -1,12 +1,10 @@
-{ inputs, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../../modules/core.nix
     ../../modules/desktop/niri.nix
-    ../../modules/gaming.nix
-    ../../modules/dev.nix
     ../../home/wsinned
   ];
 
@@ -14,16 +12,12 @@
     ../../home/wsinned/vars.nix
   ];
 
-  networking.hostName = "dw-apollo";
+  networking.hostName = "dw-dell-01";
 
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-
-  environment.systemPackages = [
-    inputs.take-note.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
 
   # Keep this value at the release used for this fresh installation.
   system.stateVersion = "26.05";
