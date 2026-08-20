@@ -86,10 +86,8 @@
   environment.localBinInPath = true;
 
   environment.systemPackages = with pkgs; [
-    git
     bash
     geekbench
-    gh
     neovim
     atuin
     starship

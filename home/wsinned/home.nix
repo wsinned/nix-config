@@ -68,8 +68,18 @@ in
   programs = {
     home-manager.enable = true;
     fish.enable = true;
-    git.enable = true;
-    gh.enable = true;
+    gh = {
+      enable = true;
+      gitCredentialHelper.enable = false;
+    };
+
+    git = {
+      enable = true;
+      settings = {
+      credential."https://github.com".helper = "!gh auth git-credential";
+      credential."https://gist.github.com".helper = "!gh auth git-credential";
+      };
+    };
   };
 
   services.swayidle = {
