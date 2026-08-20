@@ -40,13 +40,13 @@ for the actual disk layout:
 ```bash
 sudo nixos-generate-config --root /mnt
 cp /mnt/etc/nixos/hardware-configuration.nix \
-  ~/code/nix-config/hosts/dw-dell-01/hardware-configuration.nix
+  ~/nix-config/hosts/dw-dell-01/hardware-configuration.nix
 ```
 
 Then install:
 
 ```bash
-sudo nixos-install --flake ~/code/nix-config#dw-dell-01
+sudo nixos-install --flake ~/nix-config#dw-dell-01
 ```
 
 After the first boot, join the machine to the tailnet interactively:
