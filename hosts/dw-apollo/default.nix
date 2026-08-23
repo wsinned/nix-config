@@ -14,6 +14,9 @@
     ../../home/wsinned/vars.nix
   ];
 
+  programs.ydotool.enable = true;
+  users.users.wsinned.extraGroups = [ "ydotool" ];
+
   networking.hostName = "dw-apollo";
 
   boot.loader = {
@@ -23,6 +26,7 @@
 
   environment.systemPackages = [
     inputs.take-note.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.autonumlock.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Keep this value at the release used for this fresh installation.
