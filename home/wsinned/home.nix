@@ -9,8 +9,7 @@ let
   # The same checkout location is used on every Linux device. The files remain
   # owned by tech-notes and are linked rather than copied into the Nix store.
   dotfilesRoot = "${config.home.homeDirectory}/tech-notes/dotfiles";
-  lockCommand =
-    "${pkgs.procps}/bin/pgrep -x swaylock >/dev/null || ${pkgs.swaylock-effects}/bin/swaylock -f";
+  lockCommand = "${pkgs.procps}/bin/pgrep -x swaylock >/dev/null || ${pkgs.swaylock-effects}/bin/swaylock -f";
 
   managedConfigDirectories = [
     "foot"
@@ -38,6 +37,7 @@ in
       fastfetch
       ripgrep
       fd
+      hicolor-icon-theme
     ];
 
     file =
@@ -65,6 +65,15 @@ in
       };
   };
 
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+  };
+
   programs = {
     home-manager.enable = true;
     fish.enable = true;
@@ -76,8 +85,8 @@ in
     git = {
       enable = true;
       settings = {
-      credential."https://github.com".helper = "!gh auth git-credential";
-      credential."https://gist.github.com".helper = "!gh auth git-credential";
+        credential."https://github.com".helper = "!gh auth git-credential";
+        credential."https://gist.github.com".helper = "!gh auth git-credential";
       };
     };
   };
