@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "autonumlock": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787412103,
+        "narHash": "sha256-bGKAOuuFoV3XI0cbUzAt3kpYrGsHPdhoqAibOge7LV4=",
+        "path": "/home/wsinned/code/autonumlock",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/wsinned/code/autonumlock",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -39,6 +56,7 @@
     },
     "root": {
       "inputs": {
+        "autonumlock": "autonumlock",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "take-note": "take-note"

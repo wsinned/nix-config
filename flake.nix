@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    autonumlock = {
+      url = "github:wsinned/autonumlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
