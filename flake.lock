@@ -7,14 +7,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1787412103,
-        "narHash": "sha256-bGKAOuuFoV3XI0cbUzAt3kpYrGsHPdhoqAibOge7LV4=",
-        "path": "/home/wsinned/code/autonumlock",
-        "type": "path"
+        "lastModified": 1787474011,
+        "narHash": "sha256-KpLzQMj+TDlzlfRxvVK6U3nWqgVOwPQhB/E0Zw7hLpk=",
+        "owner": "wsinned",
+        "repo": "autonumlock",
+        "rev": "ced10c1759aba2736943f5aad88611d6cd2629e8",
+        "type": "github"
       },
       "original": {
-        "path": "/home/wsinned/code/autonumlock",
-        "type": "path"
+        "owner": "wsinned",
+        "repo": "autonumlock",
+        "type": "github"
       }
     },
     "home-manager": {
@@ -24,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785119570,
-        "narHash": "sha256-Rgs2xKnGLFWQscxUaXX07oyZeuMDOHEbqDOsgliLFGM=",
+        "lastModified": 1787377438,
+        "narHash": "sha256-Sxu1NLTD/Ern6hFGLlZmtKCSct3YQXZI/lls8RE1XeM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d4fd24667c8cbef124bb70a20380cab75ec8474d",
+        "rev": "65258d5c65a250189fde2e35f490d15e064c4c62",
         "type": "github"
       },
       "original": {
@@ -40,11 +43,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1786711500,
-        "narHash": "sha256-QvnceIGTBeDvDd9oCn+GvdsnkquliuwbVgpiRH68qaQ=",
+        "lastModified": 1787204541,
+        "narHash": "sha256-OURZPknrTjQrlNyxPdqzyqmU/81Wes1CUP/Ft1Rv/YI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "02e08985a27c65ffd33d434eeb2e660a2e4dc84d",
+        "rev": "5880666fd9eb563038431edb35c2d0aa595884e6",
         "type": "github"
       },
       "original": {
@@ -69,11 +72,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786779340,
-        "narHash": "sha256-wx28xPgkcdMmmwmCV2VKsceVe+4t8vlEV+PQ9Khp9Kk=",
+        "lastModified": 1787242593,
+        "narHash": "sha256-crQqoDefQ5guFWHgCBsqpOOTcqAvynFN9B0OTbpZxio=",
         "owner": "wsinned",
         "repo": "take-note-rs",
-        "rev": "4cc20149f7c9b4255bbeba9083653ffc3677b238",
+        "rev": "2a583e28edf4178104b6cb46679a1d4cf1b36683",
         "type": "github"
       },
       "original": {
