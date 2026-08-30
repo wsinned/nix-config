@@ -54,7 +54,7 @@
   services = {
     blueman.enable = true;
     printing.enable = true;
-    openssh.enable = false;
+    openssh.enable = true;
     tailscale = {
       enable = true;
       openFirewall = true;
