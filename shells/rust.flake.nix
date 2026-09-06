@@ -11,8 +11,15 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { self, nixpkgs, flake-utils, rust-overlay }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      rust-overlay,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         overlays = [
           # This overlay adds the "rust-bin" package to nixpkgs
@@ -26,8 +33,12 @@
         localRust = pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
 
         # Other utilities commonly used in Rust projects (but not in this example project)
-        others = with pkgs; [ openssl pkg-config ];
-      in {
+        others = with pkgs; [
+          openssl
+          pkg-config
+        ];
+      in
+      {
         devShells = {
           default = pkgs.mkShell {
             # Packages included in the environment
@@ -39,5 +50,6 @@
             '';
           };
         };
-      });
+      }
+    );
 }

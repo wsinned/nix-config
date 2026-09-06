@@ -3,7 +3,6 @@
 {
   programs.niri.enable = true;
 
-
   services.greetd = {
     enable = true;
     settings.default_session = {
@@ -36,22 +35,17 @@
 
   environment.systemPackages = with pkgs; [
     # Niri session
-    niri
     xwayland-satellite
     waybar
     mako
     swaybg
-    swayidle
     swaylock-effects
     foot
-    neovim
-
 
     # Launchers, menus and desktop integration used by the shared dotfiles
     vicinae
     nautilus
     networkmanagerapplet
-    blueman
     pavucontrol
     polkit_gnome
 

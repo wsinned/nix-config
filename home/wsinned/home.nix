@@ -25,6 +25,7 @@ let
 in
 {
   imports = [
+    ./vars.nix
     ./zed.nix
   ];
 
@@ -75,6 +76,10 @@ in
   };
 
   programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
     home-manager.enable = true;
     fish.enable = true;
     gh = {
