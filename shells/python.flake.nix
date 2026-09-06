@@ -9,8 +9,14 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         overlays = [
         ];
@@ -19,8 +25,8 @@
         pkgs = import nixpkgs { inherit system overlays; };
 
         # Other utilities commonly used in Python projects
-        others = with pkgs; [ 
-        
+        others = with pkgs; [
+
           (pkgs.python312.withPackages (python-pkgs: [
             # select Python packages here
             python-pkgs.pip
@@ -34,8 +40,9 @@
           exercism
           ruff
         ];
-        
-      in {
+
+      in
+      {
         devShells = {
           default = pkgs.mkShell {
             # Packages included in the environment
@@ -47,5 +54,6 @@
             '';
           };
         };
-      });
+      }
+    );
 }

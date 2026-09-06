@@ -9,8 +9,14 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         overlays = [
         ];
@@ -20,7 +26,8 @@
 
         # Other utilities commonly used in Node projects
         others = with pkgs; [ nodejs-slim_22 ];
-      in {
+      in
+      {
         devShells = {
           default = pkgs.mkShell {
             # Packages included in the environment
@@ -32,5 +39,6 @@
             '';
           };
         };
-      });
+      }
+    );
 }
