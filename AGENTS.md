@@ -14,9 +14,9 @@ Before commencing each new task:
 - Inspect `git status --short --branch`, the current branch, configured remotes, its upstream, and outgoing commits.
 - Fetch the relevant remote and pull tracked changes with `git pull --ff-only` when the current state makes that safe.
 - Never auto-stash, reset, discard, or switch away from uncommitted work. Stop and ask when local changes or divergence could be disturbed.
-- If the current branch is not `main` or the configured default branch, check whether it has been pushed. Offer to push an untracked or ahead branch, but wait for approval.
+- If the current branch is not `main` or the configured default branch, check its upstream and outgoing commits and report its publication state.
 - Ask whether the new task belongs on the current branch or needs a new descriptive branch.
-- Offer to rebase a topic branch onto the updated remote `main` when applicable. Rebase only with explicit approval, and confirm the impact before rewriting a published branch.
+- Compare a topic branch with the fetched remote default branch and report its ahead/behind counts. If the branch is behind or diverged, stop and ask whether to rebase, merge the default branch, or deliberately continue without synchronising. Apply only the explicit choice; never treat behind status as informational or rewrite published history without approval.
 - When starting from `main`, update it with a fast-forward-only pull when safe, then create a descriptive topic branch after approval before changing files.
 
 ## Working Practices
@@ -46,13 +46,14 @@ Before commencing each new task:
 
 - Work on a descriptive branch; never commit directly to `main` or another protected default branch.
 - Keep commits focused on one logical change and include related tests and documentation.
-- Do not commit, push, tag, publish, release, or merge without explicit owner approval.
+- After completing and verifying requested repository changes, always commit them, push the topic branch, and create or update a pull request so the owner can review from another device. Do not leave completed work only as uncommitted local changes.
+- Fetch immediately before pushing and compare the topic branch with the remote default branch. If it is behind or diverged, stop and obtain an explicit rebase, merge, or publish-without-synchronising decision.
 - Never amend published history or force-push unless the owner explicitly requests it and the exact target is confirmed.
-- Before pushing, ask whether the change also needs a version bump or release tag, unless repository instructions explicitly state that it is unversioned.
-- Merge only with explicit approval. After an approved merge, remove local and remote topic branches when requested.
+- Never merge, tag, release, deploy, or delete branches without explicit owner approval.
 
 ## Completion
 
 - Summarise what changed and why.
 - List the checks run and their results.
+- Link the pull request and report its checks or review state.
 - Call out remaining risks, assumptions, follow-up work, and any files intentionally left unchanged.
