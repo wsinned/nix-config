@@ -6,6 +6,8 @@
     ./platform.nix
     ../../modules/core.nix
     ../../modules/desktop/niri.nix
+    ../../modules/apps/codex-desktop.nix
+    ../../modules/services/syncthing.nix
     ../../modules/gaming.nix
     ../../modules/dev.nix
     ../../home/wsinned
