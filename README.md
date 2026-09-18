@@ -13,7 +13,27 @@ hostname and state version remain explicit in each host.
 
 - gaming support;
 - Intel graphics, VA-API and laptop power policy from its platform module;
+- Syncthing with UI-managed devices and folders;
+- ChatGPT Community from `ilysenko/codex-desktop-linux`, including its
+  community Linux Computer Use implementation;
 - `take-note` and `autonumlock` from flake inputs.
+
+The Syncthing and ChatGPT Community modules are separate from the host so they
+can be imported by another machine later. Syncthing's web interface listens
+only on `127.0.0.1:8384`; its standard transfer and local-discovery ports are
+open in the firewall. Configure devices and folders through that local web
+interface. Avoid adding directories already managed by OneDrive or Insync.
+
+The desktop package is pinned by `flake.lock`. Update it deliberately with:
+
+```bash
+nix flake update codex-desktop-linux
+```
+
+OpenAI's official Linux preview does not yet support Computer Use. Apollo
+therefore enables the separate community implementation supplied by the
+`codex-desktop-linux` flake. Native Wayland remains disabled, so the application
+uses the more mature XWayland path under Niri.
 
 ## Dotfiles
 
