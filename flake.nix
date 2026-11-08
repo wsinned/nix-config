@@ -19,6 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    strata.url = "github:lgse/strata";
+
+    ttt.url = "github:eugenioenko/ttt";
+
     codex-desktop-linux.url = "github:ilysenko/codex-desktop-linux";
 
   };

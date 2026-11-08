@@ -16,7 +16,7 @@ hostname and state version remain explicit in each host.
 - Syncthing with UI-managed devices and folders;
 - ChatGPT Community from `ilysenko/codex-desktop-linux`, including its
   community Linux Computer Use implementation;
-- `take-note` and `autonumlock` from flake inputs.
+- `take-note`, `autonumlock`, Strata and TTT from flake inputs.
 
 The Syncthing and ChatGPT Community modules are separate from the host so they
 can be imported by another machine later. Syncthing's web interface listens
