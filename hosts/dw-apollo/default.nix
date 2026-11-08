@@ -26,6 +26,8 @@
   environment.systemPackages = [
     inputs.take-note.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.autonumlock.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.strata.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.ttt.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Keep this value at the release used for this fresh installation.
