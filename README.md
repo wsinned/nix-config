@@ -18,6 +18,10 @@ hostname and state version remain explicit in each host.
   community Linux Computer Use implementation;
 - `take-note`, `autonumlock`, Strata and TTT from flake inputs.
 
+On Apollo, Strata is the default application for opening folders and trash
+through XDG desktop associations. The shared Niri `Mod+E` shortcut is managed
+in `tech-notes` and currently launches Nautilus directly.
+
 The Syncthing and ChatGPT Community modules are separate from the host so they
 can be imported by another machine later. Syncthing's web interface listens
 only on `127.0.0.1:8384`; its standard transfer and local-discovery ports are

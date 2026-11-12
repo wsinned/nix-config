@@ -30,6 +30,14 @@
     inputs.ttt.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
+  home-manager.users.wsinned.xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = [ "io.github.lgse.Strata.desktop" ];
+      "x-scheme-handler/trash" = [ "io.github.lgse.Strata.desktop" ];
+    };
+  };
+
   # Keep this value at the release used for this fresh installation.
   system.stateVersion = "26.05";
 }
