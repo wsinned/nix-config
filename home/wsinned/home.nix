@@ -96,6 +96,11 @@ in
     };
   };
 
+  services.udiskie = {
+    enable = true;
+    automount = true;
+  };
+
   services.swayidle = {
     enable = true;
     timeouts = [

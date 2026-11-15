@@ -9,6 +9,10 @@ Both hosts import the shared core, Niri desktop, development tools and
 `wsinned` Home Manager profile. Hardware configuration, bootloader settings,
 hostname and state version remain explicit in each host.
 
+Both hosts automatically mount removable drives during the graphical session
+using UDisks2 and the Home Manager udiskie service. Eject or unmount drives
+before disconnecting them.
+
 `dw-apollo` additionally imports:
 
 - gaming support;
