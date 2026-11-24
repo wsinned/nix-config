@@ -13,6 +13,10 @@ Both hosts automatically mount removable drives during the graphical session
 using UDisks2 and the Home Manager udiskie service. Eject or unmount drives
 before disconnecting them.
 
+Both hosts include `wl-mirror` for mirroring a Wayland output in a window.
+Run `niri msg outputs` to find the source output name, then run
+`wl-mirror <output-name>` from the graphical session.
+
 `dw-apollo` additionally imports:
 
 - gaming support;

@@ -43,6 +43,7 @@
     swaybg
     swaylock-effects
     foot
+    wl-mirror
 
     # Launchers, menus and desktop integration used by the shared dotfiles
     vicinae
