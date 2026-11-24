@@ -62,13 +62,17 @@ git clone https://github.com/wsinned/tech-notes ~/tech-notes
 ```
 
 The shared desktop configuration currently links Niri, Waybar, Mako, Foot,
-swaylock, Vicinae, Wallust, Yazi, Neovim and the common scripts directory.
+Kanshi, swaylock, Vicinae, Wallust, Yazi, Neovim and the common scripts directory.
 Machine-specific behaviour remains in the NixOS host module or a hostname-based
 dotfile fragment. Niri selects monitor configuration from
 `.config/niri/outputs/<hostname>.kdl`, keeping Apollo and Dell output settings
 separate while the rest of the desktop configuration stays shared. Both hosts
 also include `wl-mirror` for mirroring Wayland outputs and `kanshi` for managing
 output profiles.
+
+If `~/.config/kanshi` is an existing directory, move it to a backup location
+before the first rebuild that manages it. Home Manager needs the original path
+free to create the symlink.
 
 ## Install
 
