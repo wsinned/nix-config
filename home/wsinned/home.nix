@@ -13,6 +13,7 @@ let
 
   managedConfigDirectories = [
     "foot"
+    "kanshi"
     "mako"
     "niri"
     "nvim"
