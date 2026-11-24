@@ -61,6 +61,7 @@
     playerctl
     libnotify
     wl-clipboard
+    wl-mirror
     google-chrome
     discord
     obsidian
