@@ -62,6 +62,7 @@
     libnotify
     wl-clipboard
     wl-mirror
+    kanshi
     google-chrome
     discord
     obsidian

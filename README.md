@@ -67,7 +67,8 @@ Machine-specific behaviour remains in the NixOS host module or a hostname-based
 dotfile fragment. Niri selects monitor configuration from
 `.config/niri/outputs/<hostname>.kdl`, keeping Apollo and Dell output settings
 separate while the rest of the desktop configuration stays shared. Both hosts
-also include `wl-mirror` for mirroring Wayland outputs.
+also include `wl-mirror` for mirroring Wayland outputs and `kanshi` for managing
+output profiles.
 
 ## Install
 
